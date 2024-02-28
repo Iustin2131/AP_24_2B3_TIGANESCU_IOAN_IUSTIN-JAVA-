@@ -1,0 +1,73 @@
+import java.util.Scanner;
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static void main(String[] args) {
+    if(args.length<3){
+        System.out.printf("Nu ati furnizat 3 argumente: a b k.");
+    }
+
+        int a=Integer.parseInt(args[0]);
+        int b=Integer.parseInt(args[0]);
+        int k=Integer.parseInt(args[0]);
+
+        long millis = System.currentTimeMillis();
+        long nanos = System.nanoTime();
+
+        StringBuilder string = new StringBuilder("The numbers that are " + k + "-reductible are: ");
+
+        for(int number=a; number<=b; number++) {
+            boolean Is_K_Reductible = check_k_Reductible(number, k);
+            if (Is_K_Reductible) {
+                System.out.println(number + " este " + k + "-reductibil");
+                string.append(number).append(", ");
+            } else {
+                System.out.println(number + " nu este " + k + "-reductibil");
+            }
+        }
+        System.out.println(string);
+        System.out.println("Timpul in milisecunde este " + millis + " si nanisecunde este " + nanos);
+
+    }
+
+/*
+        long millis = System.currentTimeMillis();
+        long nanos = System.nanoTime();
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number a: ");
+        int a=scanner.nextInt();
+        System.out.print("Enter a number b: ");
+        int b=scanner.nextInt();
+        System.out.print("Enter a k: ");
+        int k=scanner.nextInt();
+
+        StringBuilder string = new StringBuilder("The numbers that are " + k + "-reductible are: ");
+
+        for(int number=a; number<=b; number++) {
+            boolean Is_K_Reductible = check_k_Reductible(number, k);
+            if (Is_K_Reductible) {
+                System.out.println(number + " este " + k + "-reductibil");
+                string.append(number).append(", ");
+            } else {
+                System.out.println(number + " nu este " + k + "-reductibil");
+            }
+        }
+        System.out.println(string);
+        System.out.println("Timpul in milisecunde este " + millis + " si nanisecunde este " + nanos);
+    }
+*/
+
+    public  static boolean check_k_Reductible (int number, int k) {
+      while(number >=10) {
+          int sum=0;
+           while(number>0){
+               int mod=number%10;
+               sum+=mod*mod;
+               number/=10;
+           }
+           number=sum;
+      }
+      return number==k;
+    }
+}

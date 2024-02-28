@@ -1,0 +1,53 @@
+import java.util.Scanner;
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static void main(String[] args) {
+        System.out.print(" Hello World!");
+
+        String[] languages=  {"C", "C++", "C#", "Python", "Go", "Rust", "JavaScript", "PHP", "Swift", "Java"};
+        System.out.println("\n The array of strings, languages, contains: ");
+        for(String language : languages){
+            System.out.println(language);
+        }
+
+        int n=(int) (Math.random() * 1_000_000);
+        System.out.println(n);
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number n: ");
+        int nr = scanner.nextInt();
+        scanner.close();
+
+        nr=nr*3;
+        System.out.print(nr);
+
+        String binnary="10101";
+        int Decimal_Number=Integer.parseInt(binnary,2);
+        nr=nr+Decimal_Number;
+        System.out.print("\n" + nr + "\n");
+
+        String hexazecimal="FF";
+        int Hexazecimal_Number=Integer.parseInt(hexazecimal,16);
+        nr=nr+Hexazecimal_Number;
+        System.out.print(nr + "\n");
+
+        System.out.print(nr*6);
+
+        while(nr>9){
+            nr=Sum_Of_Digits(nr);
+        }
+        System.out.print("\n" + "The sum of the digits is " + nr);
+
+        System.out.println("\n" + "Willy-nilly, this semester I will learn " + languages[nr]);
+    }
+
+    public static int Sum_Of_Digits(int nr){
+        int sum=0;
+        while(nr!=0){
+            sum+=nr%10;
+            nr/=10;
+        }
+        return sum;
+    }
+}
