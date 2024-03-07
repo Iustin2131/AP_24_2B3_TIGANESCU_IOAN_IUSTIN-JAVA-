@@ -48,7 +48,6 @@ public class Depot {
 
     /**
      * Returns a hash code value for the depot.
-     *
      * @return
      */
     public int hashCode() {
