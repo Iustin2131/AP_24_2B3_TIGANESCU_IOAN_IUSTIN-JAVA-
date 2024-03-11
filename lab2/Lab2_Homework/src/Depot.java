@@ -29,6 +29,10 @@ public class Depot {
         return name;
     }
 
+    public int getVehicleSize() {
+        return vehicles.size();
+    }
+
     /**
      * Indicates whether some other object is "equal to" this one.
      *
@@ -48,6 +52,7 @@ public class Depot {
 
     /**
      * Returns a hash code value for the depot.
+     *
      * @return
      */
     public int hashCode() {
@@ -65,10 +70,28 @@ public class Depot {
 
     /**
      * Adds a vehicle to the list of vehicles associated with the depot.
-     *
-     * @param vehicle
+     * @param newVehicles
      */
-    public void addVehicle(Vehicle vehicle) {
-        vehicles.add(vehicle);
+    public void addVehicle(Vehicle ... newVehicles) {
+
+        for(Vehicle vehicle : newVehicles) {
+
+            boolean vehicleExists=false;
+
+            for(Vehicle existingVehicle : vehicles){
+                if(existingVehicle.getDescription().equals(vehicle.getDescription())){
+                    vehicleExists= true;
+                    break;
+                }
+            }
+
+            if(vehicleExists){
+                System.out.println("This description " + vehicle.getDescription()+" is already exists." );
+            } else {
+                vehicles.add(vehicle);
+            }
+        }
     }
+
+
 }

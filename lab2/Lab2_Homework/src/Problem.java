@@ -21,6 +21,7 @@ public class Problem {
       description=n;
       solution=s;
       depots= new ArrayList<>();
+      clientLocation= new ArrayList<>();
    }
 
    /**
@@ -30,6 +31,20 @@ public class Problem {
     */
    public String getProblemDescription(){
       return description;
+   }
+
+   /**
+    * Gets the number of cars.
+    *
+    * @return
+    */
+   public int getNumberOfCars(){
+      int nrCars=0;
+      for(Depot depot : depots){
+         nrCars=nrCars+ depot.getVehicleSize();
+      }
+
+      return nrCars;
    }
 
    /**
@@ -68,12 +83,28 @@ public class Problem {
       return depots;
    }
 
-   /**
-    * Sets the list of client locations associated with the problem.
-    *
-    * @param clientLocation The list of client locations to be set.
-    */
-   public void setClientLocation(List<Location> clientLocation) {
-      this.clientLocation = clientLocation;
+   public List<Location> getClientLocation() {
+      return clientLocation;
    }
+
+   /**
+    * Add  clients
+    *
+    * @param clientLocatio
+    */
+
+   public void add(Location clientLocatio) {
+      boolean clientExists=false;
+
+      for(Location client : clientLocation){
+         if(client.getDescription().equals(clientLocatio.getDescription())){
+            System.out.println("The Client " + clientLocatio.getDescription() + " is already exists. ");
+            clientExists=true;
+            break;
+      }
+   }
+      if(!clientExists){
+         clientLocation.add(clientLocatio);
+      }
+}
 }

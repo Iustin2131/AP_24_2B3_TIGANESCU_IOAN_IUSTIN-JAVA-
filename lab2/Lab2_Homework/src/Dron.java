@@ -6,7 +6,7 @@ import java.util.List;
  * Contain a capacity
  */
 public class Dron extends Vehicle{
-    private String capacitate;
+    private int capacitate;
 
     /**
      *  Constructs a new Dron with the given description, index, and capacity
@@ -15,7 +15,7 @@ public class Dron extends Vehicle{
      * @param index
      * @param capacitate
      */
-    public Dron(String description, int index, String capacitate){
+    public Dron(String description, int index, int capacitate){
         super(description,index);
         this.capacitate=capacitate;
     }

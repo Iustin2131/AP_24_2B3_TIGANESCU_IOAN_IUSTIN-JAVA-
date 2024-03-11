@@ -3,7 +3,8 @@
  * Contain a capacity
  */
 public class Truck extends Vehicle{
-    private String capacitate;
+    private int capacitate;
+
 
     /**
      *  Constructs a new Truck with the given description, index, and capacity
@@ -12,7 +13,7 @@ public class Truck extends Vehicle{
      * @param index
      * @param cap
      */
- public Truck(String n, int index, String cap){
+ public Truck(String n, int index, int cap){
      super(n, index);
      capacitate=cap;
 

@@ -6,6 +6,11 @@ import java.util.Objects;
  */
 public class Client {
     private String description;
+    private String vehicle;
+
+    public void setVehicle(String vehicle) {
+        this.vehicle = vehicle;
+    }
 
     /**
      * Constructs a new Client with the given description.

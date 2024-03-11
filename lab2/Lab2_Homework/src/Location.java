@@ -4,7 +4,7 @@
  */
 public class Location {
     private int count=0;
-    private int index;
+    private int index=-1;
     private String description;
 
     /**
@@ -28,5 +28,9 @@ public class Location {
      */
     public int getIndex() {
         return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
 }
