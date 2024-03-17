@@ -16,9 +16,14 @@ public class Main {
                 Iasi.addTimeTable("2024-03-15", new Trip<>(LocalTime.of(12, 0), LocalTime.of(14, 0), "Operating system", "frecventat",6));
                 Iasi.addTimeTable("2024-03-15", new Trip<>(LocalTime.of(14, 0), LocalTime.of(16, 0), "LFAC", "nefrecventat",5));
 
+                System.out.println("-----------------------------");
                 Iasi.showSchedule();
+                System.out.println("-----------------------------");
                 Iasi.scheduleDay("vineri");
+
+                System.out.println("-----------------------------");
                 Iasi.sortByStartHour("nefrecventat");
+                System.out.println("-----------------------------");
 
         }
 }
