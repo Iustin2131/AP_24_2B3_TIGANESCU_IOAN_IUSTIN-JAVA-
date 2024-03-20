@@ -94,17 +94,9 @@ public class TravelPlan {
 
         for (Map.Entry<String, List<Trip>> entry : timeTable.entrySet()) {
             LocalDate date = LocalDate.parse(entry.getKey());
-
-            // Obțineți ziua săptămânii din data specificată
             DayOfWeek dayOfWeek = date.getDayOfWeek();
-
-            // Definiți un formatator pentru a obține numele zilei într-o anumită limbă (de exemplu, română)
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE", new Locale("ro"));
-
-            // Formatați ziua săptămânii folosind formatatorul definit
             String dayName = dayOfWeek.getDisplayName(TextStyle.FULL, new Locale("ro")).toLowerCase();
 
-            // Verificați dacă ziua săptămânii corespunde cu ziua specificată
             if (dayName.equals(day)) {
                 System.out.println("\n\n Orarul zilei " + dayName + ": ");
                 for (Trip interval : entry.getValue()) {
