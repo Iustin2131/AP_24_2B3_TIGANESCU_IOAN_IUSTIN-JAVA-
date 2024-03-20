@@ -122,7 +122,7 @@ public class TravelPlan {
 
 
     public static void colorAndPrintGraph(Graph graph) {
-        mColoringProblem coloringProblem = new mColoringProblem();
+        Coloring coloringProblem = new Coloring();
 
         int[][] adjacencyMatrix = convertGraphToAdjacencyMatrix(graph);
         int m = 23; // Numărul de culori disponibile
