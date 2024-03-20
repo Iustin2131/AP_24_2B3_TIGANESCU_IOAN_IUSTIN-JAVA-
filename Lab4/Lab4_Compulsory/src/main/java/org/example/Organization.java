@@ -1,14 +1,8 @@
 package org.example;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Random;
 import java.util.stream.Collectors;
-import java.util.TreeSet;
+import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Organization {
     private List<Person> drivers;
@@ -33,17 +27,10 @@ public class Organization {
     public  void matchDriversAndPassengers() {
         Map<Person, Person> matches = new HashMap<>();
 
-        // Transformăm lista de pasageri într-un flux de elemente
         List<Person> matchedPassengers = passengers.stream()
-
-                // Aplicăm un filtru pentru a păstra doar pasagerii care au aceeași destinație cu cel puțin un șofer
-                .filter(passenger -> drivers.stream() // Transformăm lista de șoferi într-un flux de elemente
-
-                        // Verificăm dacă oricare dintre șoferi are aceeași destinație ca și pasagerul curent
+                .filter(passenger -> drivers.stream()
                         .anyMatch(driver -> driver.getDestination().equals(passenger.getDestination())))
-
-                // Colectăm pasagerii rămași după filtrare înapoi într-o listă
-                .collect(Collectors.toList());
+                              .collect(Collectors.toList());
 
         for (Person driver : drivers) {
             for (Person passenger : matchedPassengers) {
@@ -71,13 +58,11 @@ public class Organization {
         Random random = new Random();
         List<Person> persons = new ArrayList<>();
 
-        // Adăugăm persoane aleatorii în lista de persoane
         for (int i = 0; i < 10; i++) {
             Person person = new Person("Person" + i,random.nextInt(25), "Destination" );
             persons.add(person);
         }
 
-        // Filtrăm șoferii și pasagerii folosind stream-uri Java
         List<Person> filteredDrivers = persons.stream()
                 .filter(person -> person.getDestination().equals("Destination0") || person.getDestination().equals("Destination1"))
                 .collect(Collectors.toList());
@@ -90,29 +75,28 @@ public class Organization {
             matches.put(filteredDrivers.get(i), filteredPassengers.get(i));
         }
     }
-    public LinkedList<Person> getDriversLinkedList() {
-        return new LinkedList<>(drivers);
+
+    public void getSortedDriversByAge()
+    {
+        System.out.println("Sorted drivers by age : ");
+        List<Person> sortDriversList = drivers.stream()
+                .sorted(Comparator.comparing(Person::getAge))
+                .collect(Collectors.toCollection(LinkedList::new));
+                System.out.println(sortDriversList + "\n");
+
+        System.out.println(sortDriversList + "\n");
+
     }
 
-    public LinkedList<Person> getSortedDriversByAge() {
-        // Copiem lista de șoferi pentru a nu afecta lista originală
-        LinkedList<Person> sortedDrivers = new LinkedList<>(drivers);
+   public void getSortedPassengersByName()
+    {
+        System.out.println("Sorted drivers by age : ");
+        List<Person> sortDriversList = passengers.stream()
+                        .sorted(Comparator.comparing(Person::getName))
+                                .collect(Collectors.toCollection(LinkedList::new));
 
-        // Sortăm lista de șoferi după vârstă folosind un comparator personalizat
-        Collections.sort(sortedDrivers, new Comparator<Person>() {
-            @Override
-            public int compare(Person p1, Person p2) {
-                return Integer.compare(p2.getAge(), p1.getAge());
-            }
-        });
-
-        return sortedDrivers;
+        System.out.println(sortDriversList + "\n");
     }
 
-    public TreeSet<Person> getSortedPassengersByName() {
-        // Cream un TreeSet pentru a stoca pasagerii
-        TreeSet<Person> sortedPassengers = new TreeSet<>(passengers);
 
-        return sortedPassengers;
-    }
 }

@@ -28,4 +28,13 @@ public class Person implements Comparable<Person>{
     public int compareTo(Person otherPerson) {
         return this.name.compareTo(otherPerson.getName());
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", destination='" + destination + '\'' +
+                ", age=" + age +
+                '}'+'\n';
+    }
 }
