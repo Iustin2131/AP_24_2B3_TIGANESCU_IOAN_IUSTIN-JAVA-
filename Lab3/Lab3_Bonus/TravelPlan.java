@@ -96,13 +96,9 @@ public class TravelPlan {
             }
         }
 
-        // Sortăm activitățile în funcție de ora de începere
         dayTrips.sort(Comparator.comparing(Trip::getStartHour));
+        Graph graph = new Graph(24);
 
-        // Creăm un graf pentru ziua specificată
-        Graph graph = new Graph(24); // Presupunem că o zi are 24 de ore
-
-        // Adăugăm muchii între orele de început și sfârșit ale activităților planificate
         for (Trip trip : dayTrips) {
             int startHour = trip.getStartHour().getHour();
             int endHour = trip.getEndHour().getHour();
@@ -110,14 +106,10 @@ public class TravelPlan {
                 graph.addEdge(startHour, endHour);
         }
 
-        // Returnăm graful construit
         return graph;
     }
 
     public void printGraph(Graph graph) {
-        // Afisăm graful
-
-        // Parcurgem toate orele și afișăm muchiile
         for (int i = 0; i < 24; i++) {
             List<Integer> edges = graph.getEdges(i);
             System.out.print("Ora " + i + ": ");
@@ -138,7 +130,6 @@ public class TravelPlan {
         coloringProblem.graphColoring(adjacencyMatrix, m);
     }
 
-    // Convertim graful într-o matrice de adiacență
     public static int[][] convertGraphToAdjacencyMatrix(Graph graph) {
         int[][] adjacencyMatrix = new int[graph.getSize()][graph.getSize()];
 
