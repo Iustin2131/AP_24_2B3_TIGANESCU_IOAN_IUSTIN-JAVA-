@@ -20,7 +20,7 @@ public class Main {
         organization.printMatchesDriversPassengers();
 
         System.out.println("------------------------------------------");
-        organization.createRandomGroupAndFilter();
+        organization.getSortedDriversByAge();
         System.out.println("------------------------------------------");
         organization.getSortedPassengersByName();
     }

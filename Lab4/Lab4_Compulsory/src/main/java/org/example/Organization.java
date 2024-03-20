@@ -82,7 +82,6 @@ public class Organization {
         List<Person> sortDriversList = drivers.stream()
                 .sorted(Comparator.comparing(Person::getAge))
                 .collect(Collectors.toCollection(LinkedList::new));
-                System.out.println(sortDriversList + "\n");
 
         System.out.println(sortDriversList + "\n");
 
