@@ -84,7 +84,6 @@ public class Organization {
                 .collect(Collectors.toCollection(LinkedList::new));
 
         System.out.println(sortDriversList + "\n");
-
     }
 
    public void getSortedPassengersByName()
