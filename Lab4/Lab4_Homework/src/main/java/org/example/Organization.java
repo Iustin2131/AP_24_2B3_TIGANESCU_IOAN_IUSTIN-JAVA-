@@ -72,6 +72,7 @@ public class Organization {
             persons.add(person);
         }
 
+
         List<Person> filteredDrivers = persons.stream()
                 .filter(person -> person.getDestination().equals("Destination0") || person.getDestination().equals("Destination1"))
                 .collect(Collectors.toList());

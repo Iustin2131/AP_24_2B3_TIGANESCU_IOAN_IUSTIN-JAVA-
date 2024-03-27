@@ -1,7 +1,15 @@
 package org.example;
 
 import org.graph4j.*;
+import org.jgrapht.Graph;
+import org.jgrapht.graph.DefaultEdge;
+import org.jgrapht.graph.DefaultUndirectedGraph;
+import org.jgrapht.alg.matching.HopcroftKarpMaximumCardinalityBipartiteMatching;
+
 import java.util.Random;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,75 +18,30 @@ public class Main {
         int n = nDrivers + nPassengers;
         Random random = new Random();
 
-        Digraph g = GraphBuilder.numVertices(n)
-                .estimatedNumEdges(n)
-                .buildDigraph();
+        Graph<Integer, DefaultEdge> graph = new DefaultUndirectedGraph<>(DefaultEdge.class);
 
         System.out.println("-------------------------------------");
         for (int i = 0; i < nDrivers; i++) {
-            if (random.nextDouble()<=0.1) {
-                g.addEdge(i, nDrivers + i);
-            }
+            graph.addVertex(i);
         }
-
-        System.out.println("-------------------------------------");
-        System.out.println("Muchiile din digraf:");
+        for (int i = 0; i < nPassengers; i++) {
+            graph.addVertex(nDrivers + i);
+        }
 
         for (int i = 0; i < nDrivers; i++) {
-            NeighborIterator it = g.neighborIterator(i);
-            while (it.hasNext()) {
-                int neighbor = it.next();
-                if (neighbor >= nDrivers) {
-                    System.out.println(i + " -> " + neighbor);
-                }
+            if (random.nextDouble() <= 0.1) {
+                graph.addEdge(i, nDrivers + i);
+                System.out.println("Adăugarea muchiei (" + i + ", " + (nDrivers + i) + ") .");
             }
         }
 
-        Digraph graph = GraphBuilder.numVertices(n)
-                .estimatedNumEdges(n)
-                .buildDigraph();
+        Set<Integer> partition1 = IntStream.range(0, nDrivers).boxed().collect(Collectors.toSet());
+        Set<Integer> partition2 = IntStream.range(nDrivers, n).boxed().collect(Collectors.toSet());
 
-        CycleFinder cycleFinder = new CycleFinder(graph);
+        HopcroftKarpMaximumCardinalityBipartiteMatching<Integer, DefaultEdge> hk =
+                new HopcroftKarpMaximumCardinalityBipartiteMatching<>(graph, partition1, partition2);
 
-        for (int i = 0; i < nDrivers; i++) {
-            for (int j = i + 1; j < nPassengers; j++) {
-                graph.addEdge(i, j);
-                if (cycleFinder.containsCycle()) {
-                    graph.removeEdge(i, j);
-                } else {
-                    System.out.println("Adăugarea muchiei (" + i + ", " + j + ") nu formează un circuit.");
-                }
-            }
-        }
-
-
-        int[][] dp = new int[nDrivers + 1][nPassengers + 1];
-
-        for (int i = 1; i <= nDrivers; i++) {
-            for (int j = 1; j <= nPassengers; j++) {
-
-                int driverDestination = i;
-                int passengerDestination = j;
-
-                if (driverDestination != passengerDestination) {
-                    dp[i][j] = 1 + getMax(dp, i - 1, j - 1);
-                } else {
-                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
-                }
-            }
-        }
-
-        int maxCardinality = dp[nDrivers][nPassengers];
+        int maxCardinality = hk.getMatching().getEdges().size();
         System.out.println("Maximum cardinality of the set: " + maxCardinality);
     }
-
-    private static int getMax(int[][] dp, int i, int j) {
-        int max = Integer.MIN_VALUE;
-        for (int k = 0; k <= i; k++) {
-            for (int l = 0; l <= j; l++) {
-                max = Math.max(max, dp[k][l]);
-            }
-        }
-        return max;
-    }
-    }
+}
