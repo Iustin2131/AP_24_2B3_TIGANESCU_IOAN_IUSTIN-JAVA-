@@ -10,8 +10,15 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
 
+            if (input.equalsIgnoreCase("exit")) {
+                System.out.println("Exiting...");
+                break;
+            }
+
             String[] parts = input.split(" ", 2);
             String commandName = parts[0];
+
+
 
             Command command;
             switch (commandName.toLowerCase()) {

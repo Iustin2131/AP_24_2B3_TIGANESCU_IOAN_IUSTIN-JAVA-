@@ -17,11 +17,6 @@ public class Report implements Command {
         String repositoryPath = args[1];
         File repository = new File(repositoryPath);
 
-        if (!repository.exists() || !repository.isDirectory()) {
-            System.out.println("Invalid repository directory.");
-            return;
-        }
-
         String outputPath = "repository_hierarchy.html";
 
         try {

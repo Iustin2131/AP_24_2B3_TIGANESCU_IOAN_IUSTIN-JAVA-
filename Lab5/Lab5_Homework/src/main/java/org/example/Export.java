@@ -6,8 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Export implements Command {
     @Override
@@ -29,16 +28,15 @@ public class Export implements Command {
         File outputFile = new File("exported_classes.json");
 
         try (FileWriter writer = new FileWriter(outputFile)) {
-            // Obține o listă de fișiere .java din directorul specificat
+
             File[] javaFiles = directory.listFiles((dir, name) -> name.endsWith(".java"));
 
             if (javaFiles == null || javaFiles.length == 0) {
                 System.out.println("Nu au fost găsite fișiere .java în directorul specificat.");
                 return;
             }
-
             for (File javaFile : javaFiles) {
-                // Citeste fiecare linie din fișierul .java și scrie-o ca un obiect JSON pe o linie nouă în fișierul de ieșire
+
                 try (BufferedReader reader = new BufferedReader(new FileReader(javaFile))) {
                     String line;
                     while ((line = reader.readLine()) != null) {
