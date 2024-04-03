@@ -18,7 +18,7 @@ class GameFrame extends JFrame {
         add(drawingPanel, BorderLayout.CENTER);
         add(controlPanel, BorderLayout.SOUTH);
 
-        pack(); // Automatically sizes the frame to fit the components
+        pack();
     }
 
     public void createNewGame(int rows, int cols) {

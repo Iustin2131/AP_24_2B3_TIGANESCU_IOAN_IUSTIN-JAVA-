@@ -6,8 +6,8 @@ class DrawingPanel extends JPanel {
     private int cols;
 
     public DrawingPanel() {
-        this.rows = 10; // default grid size
-        this.cols = 10; // default grid size
+        this.rows = 10;
+        this.cols = 10;
     }
 
     public void initGrid(int rows, int cols) {
