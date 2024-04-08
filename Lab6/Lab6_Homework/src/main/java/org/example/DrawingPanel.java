@@ -131,17 +131,6 @@ class DrawingPanel extends JPanel {
                 }
             }
         }
-        System.out.println("Matricea matrixRoad după generarea drumurilor:");
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-
-                System.out.print("Node[" + i + "][" + j + "]: N=" + matrixRoad[i][j].hasNorthEdge() +
-                        ", S=" + matrixRoad[i][j].hasSouthEdge() +
-                        ", E=" + matrixRoad[i][j].hasEastEdge() +
-                        ", W=" + matrixRoad[i][j].hasWestEdge() + " | ");
-            }
-            System.out.println();
-        }
     }
 
     private void generateRoads() {
@@ -203,7 +192,6 @@ class DrawingPanel extends JPanel {
             if (!nodeStack.isEmpty()) {
                 Point lastNode = nodeStack.peek();
 
-                // Verificăm conectivitatea între nodurile selectate
                 if (( matrixRoad[row][col].hasWestEdge() && matrixRoad[lastNode.x][lastNode.y].hasEastEdge()) ||
                         ( matrixRoad[row][col].hasEastEdge() && matrixRoad[lastNode.x][lastNode.y].hasWestEdge()) ||
                         ( matrixRoad[row][col].hasSouthEdge() && matrixRoad[lastNode.x][lastNode.y].hasNorthEdge()) ||
@@ -214,18 +202,9 @@ class DrawingPanel extends JPanel {
                     currentPlayer = (currentPlayer == 1) ? 2 : 1;
                     repaint();
 
-                    System.out.println(lastNode.x + " " + row + " " + matrixRoad[row][col].hasEastEdge() + " " + matrixRoad[lastNode.x][lastNode.y].hasWestEdge());
-                    System.out.println(lastNode.y + " " + col + " " + matrixRoad[row][col].hasSouthEdge() + " " + matrixRoad[lastNode.x][lastNode.y].hasNorthEdge());
-
-
-
                 } else {
                     JOptionPane.showMessageDialog(this, "Jucătorul " + currentPlayer + " a pierdut!", "Eroare", JOptionPane.ERROR_MESSAGE);
                     playerLost = true;
-
-                    System.out.println(lastNode.x + " " + row + " " + matrixRoad[row][col].hasEastEdge() + " " + matrixRoad[lastNode.x][lastNode.y].hasWestEdge());
-                    System.out.println(lastNode.y + " " + col + " " + matrixRoad[row][col].hasSouthEdge() + " " + matrixRoad[lastNode.x][lastNode.y].hasNorthEdge());
-
                 }
             } else {
                 matrixColor[row][col] = currentPlayer;
@@ -240,12 +219,12 @@ class DrawingPanel extends JPanel {
 
     public void setMatrixRoad(Node[][] newMatrixRoad) {
         this.matrixRoad = newMatrixRoad;
-        repaint(); // Repaint the panel to reflect the updated road matrix
+        repaint();
     }
 
     public void setMatrixColor(int[][] newMatrixColor) {
         this.matrixColor = newMatrixColor;
-        repaint(); // Repaint the panel to reflect the updated color matrix
+        repaint();
     }
 
     public int getRows() {
