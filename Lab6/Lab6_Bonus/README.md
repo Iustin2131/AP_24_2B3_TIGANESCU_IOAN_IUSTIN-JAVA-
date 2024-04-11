@@ -5,12 +5,12 @@ An intersection that is adjacent with at least one stick, is called a node.
   The first player selects any node of the grid and places a circular-shaped token (stone) on it. Next, the players must alternatively choose a new unselected node that is adjacent (is connected by a stick) to the previously selected one and place a stone on it. They use stones of different colors. The player who cannot choose another node, loses the game.
   In order to create a graphical user interface for the game, you may use either Swing or JavaFX. 
 
- #  Homework:
+ #  Bonus :
  #### Prove that the player who starts the game has always a winning strategy if and only if the corresponding graph does not have a perfect matching.
  #### Based on the above observation, implement an AI for the game. 
  
-![screenshot1](Screenshot%202024-04-11%20110459.png)
-![screenshot2](Screenshot%202024-04-11%20110526.png)
-![screenshot3](Screenshot%202024-04-11%20110555.png)
-![screenshot4](Screenshot%202024-04-11%20110654.png)
+![screenshot1](Screenshot%2024-04-11%120740.png)
+![screenshot2](Screenshot%2024-04-11%120821.png)
+![screenshot3](Screenshot%2024-04-11%120842.png)
+![screenshot4](Screenshot%2024-04-11%120924.png)
 
