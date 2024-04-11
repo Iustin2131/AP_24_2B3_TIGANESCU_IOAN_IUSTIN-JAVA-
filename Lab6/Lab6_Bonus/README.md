@@ -9,8 +9,8 @@ An intersection that is adjacent with at least one stick, is called a node.
  #### Prove that the player who starts the game has always a winning strategy if and only if the corresponding graph does not have a perfect matching.
  #### Based on the above observation, implement an AI for the game. 
  
-![screenshot1](Screenshot%2024-04-11%120740.png)
-![screenshot2](Screenshot%2024-04-11%120821.png)
-![screenshot3](Screenshot%2024-04-11%120842.png)
-![screenshot4](Screenshot%2024-04-11%120924.png)
+![screenshot1](Screenshot%202024-04-11%20120740.png)
+![screenshot2](Screenshot%202024-04-11%20120821.png)
+![screenshot3](Screenshot%202024-04-11%20120842.png)
+![screenshot4](Screenshot%202024-04-11%20120924.png)
 
