@@ -11,3 +11,4 @@ An intersection that is adjacent with at least one stick, is called a node.
    Implement the logic of the game. When the player execute a mouse pressed operation, a stone must be drawn at the mouse location: red or blue depending on whose turn it is. Validate the move, according to the game rules. Determine the winner of the game.
    Export the current image of the game board into a PNG file.
    Use object serialization in order to save and restore the current status of the game. 
+ 
