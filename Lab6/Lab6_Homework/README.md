@@ -12,8 +12,8 @@ An intersection that is adjacent with at least one stick, is called a node.
 ####   Export the current image of the game board into a PNG file.
 ####   Use object serialization in order to save and restore the current status of the game. 
  
-![screenshot1](Screenshot%202024-04-11%20110459.png)
-![screenshot2](Screenshot%202024-04-11%20110526.png)
-![screenshot3](Screenshot%202024-04-11%20110555.png)
-![screenshot4](Screenshot%202024-04-11%20110654.png)
+![screenshot1](Screenshot%202024-04-11%20110654.png)
+![screenshot2](Screenshot%202024-04-11%20110555.png)
+![screenshot3](Screenshot%202024-04-11%20110526.png)
+![screenshot4](Screenshot%202024-04-11%20110459.png)
 
