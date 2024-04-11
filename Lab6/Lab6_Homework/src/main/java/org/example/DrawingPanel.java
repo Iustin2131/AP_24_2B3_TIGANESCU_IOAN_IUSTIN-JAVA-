@@ -205,6 +205,7 @@ class DrawingPanel extends JPanel {
                 } else {
                     JOptionPane.showMessageDialog(this, "Jucătorul " + currentPlayer + " a pierdut!", "Eroare", JOptionPane.ERROR_MESSAGE);
                     playerLost = true;
+
                 }
             } else {
                 matrixColor[row][col] = currentPlayer;
@@ -219,55 +220,11 @@ class DrawingPanel extends JPanel {
 
     public void setMatrixRoad(Node[][] newMatrixRoad) {
         this.matrixRoad = newMatrixRoad;
-        repaint();
+        repaint(); // Repaint the panel to reflect the updated road matrix
     }
 
     public void setMatrixColor(int[][] newMatrixColor) {
         this.matrixColor = newMatrixColor;
-        repaint();
-    }
-
-    public int getRows() {
-        return rows;
-    }
-
-    public int getCols() {
-        return cols;
-    }
-
-    public int[][] getMatrixColor() {
-        return matrixColor;
-    }
-
-    public Node[][] getMatrixRoad() {
-        return matrixRoad;
-    }
-
-    public int getRadius() {
-        return radius;
-    }
-
-    public int getCellWidth() {
-        return cellWidth;
-    }
-
-    public int getCellHeight() {
-        return cellHeight;
-    }
-
-    public int getCurrentPlayer() {
-        return currentPlayer;
-    }
-
-    public boolean isRoadsDrawn() {
-        return roadsDrawn;
-    }
-
-    public Stack<Point> getNodeStack() {
-        return nodeStack;
-    }
-
-    public boolean isPlayerLost() {
-        return playerLost;
+        repaint(); // Repaint the panel to reflect the updated color matrix
     }
 }

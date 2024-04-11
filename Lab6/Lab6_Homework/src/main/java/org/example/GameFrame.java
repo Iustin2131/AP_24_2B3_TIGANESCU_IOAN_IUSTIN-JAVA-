@@ -6,6 +6,8 @@ import java.awt.*;
 public class GameFrame extends JFrame {
 
     private DrawingPanel drawingPanel;
+    private ConfigPanel configPanel;
+    private ControlPanel controlPanel;
 
     public GameFrame() {
         setTitle("Game Frame");
@@ -13,10 +15,12 @@ public class GameFrame extends JFrame {
         setResizable(false);
 
         drawingPanel = new DrawingPanel();
-        ControlPanel controlPanel = new ControlPanel(drawingPanel);
+        controlPanel = new ControlPanel(drawingPanel);
+        configPanel = new ConfigPanel(this);
 
         add(drawingPanel);
         add(controlPanel, BorderLayout.SOUTH);
+        add(configPanel, BorderLayout.NORTH);
 
         pack();
         setLocationToLeftTop();
@@ -27,13 +31,17 @@ public class GameFrame extends JFrame {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int screenWidth = (int) screenSize.getWidth();
         int screenHeight = (int) screenSize.getHeight();
-        setLocation(0, 0); // Setează poziția în colțul stânga sus
+        setLocation(0, 0);
     }
 
     public void startNewGame(int rows, int cols) {
 
         remove(drawingPanel);
         drawingPanel = new DrawingPanel();
+        controlPanel.setDrawingPanel(drawingPanel);
+        add(drawingPanel);
+        pack();
+        setSize(new Dimension(600, 600));
         drawingPanel.initGrid(rows, cols);
         add(drawingPanel);
         revalidate();

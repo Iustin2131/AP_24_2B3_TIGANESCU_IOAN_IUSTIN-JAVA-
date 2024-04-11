@@ -1,30 +1,32 @@
-package org.example;
+package org.example;//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-public class ConfigPanel extends JPanel {
+class ConfigPanel extends JPanel {
     private final JTextField rowsField;
     private final JTextField colsField;
-    private final GameFrame gameFrame;
 
     public ConfigPanel(GameFrame gameFrame) {
-        this.gameFrame = gameFrame;
-
-        add(new JLabel("Rows:"));
-        rowsField = new JTextField(5);
-        add(rowsField);
-
-        add(new JLabel("Cols:"));
-        colsField = new JTextField(5);
-        add(colsField);
-
+        this.add(new JLabel("Rows:"));
+        this.rowsField = new JTextField(5);
+        this.add(this.rowsField);
+        this.add(new JLabel("Cols:"));
+        this.colsField = new JTextField(5);
+        this.add(this.colsField);
         JButton createGameButton = new JButton("Create");
-        createGameButton.addActionListener(e -> {
-            int rows = Integer.parseInt(rowsField.getText());
-            int cols = Integer.parseInt(colsField.getText());
+        createGameButton.addActionListener((e) -> {
+            int rows = Integer.parseInt(this.rowsField.getText());
+            int cols = Integer.parseInt(this.colsField.getText());
             gameFrame.startNewGame(rows, cols);
         });
-        add(createGameButton);
+        this.add(createGameButton);
     }
+
+
 }

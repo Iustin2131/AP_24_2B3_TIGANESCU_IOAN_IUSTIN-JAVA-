@@ -79,4 +79,8 @@ public class ControlPanel extends JPanel {
             JOptionPane.showMessageDialog(this, "Eroare la încărcarea capturii de ecran: " + ex.getMessage(), "Eroare", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    public void setDrawingPanel(DrawingPanel drawingPanel) {
+        this.drawingPanel = drawingPanel;
+    }
 }
