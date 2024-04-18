@@ -7,7 +7,7 @@ The value of a sequence is given by the number of its tokens.
 The game ends when all tokens have been removed from the bag or when a player makes a sequence of length n. Each player receives a number of points equal to the value of its largest sequence.
 The players might take turns (or not...) and a time limit might be imposed (or not...).
 
-Compulsory 
+# Compulsory 
 
 ####    Create an object oriented model of the problem.
 ####    Each player will have a name and they must perform in a concurrent manner, extracting repeatedly tokens from the bag.
