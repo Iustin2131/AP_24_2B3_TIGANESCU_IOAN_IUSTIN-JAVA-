@@ -7,7 +7,7 @@ The value of a sequence is given by the number of its tokens.
 The game ends when all tokens have been removed from the bag or when a player makes a sequence of length n. Each player receives a number of points equal to the value of its largest sequence.
 The players might take turns (or not...) and a time limit might be imposed (or not...).
 
- # Homework (2p)
+ # Homework 
 
  ####    Implement the logic of the game and determine who the winner is at the end of the game.
  ####    The players will try to make their sequences using a simple heuristic.
