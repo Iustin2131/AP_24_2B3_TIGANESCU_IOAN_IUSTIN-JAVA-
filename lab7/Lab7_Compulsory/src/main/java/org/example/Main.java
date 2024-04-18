@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Main
 {
     public static void main(String[] args) throws InterruptedException {
-        int tokenMaxValue = 5;
+        int tokenMaxValue = 3;
         int playersNumber = 3;
         Bag bag = new Bag(tokenMaxValue);
 
@@ -16,7 +16,7 @@ public class Main
         List<Player> players = new ArrayList<>();
         for(int i = 1; i <= playersNumber; i++)
         {
-            players.add(new Player("Player " + i, bag, tokenMaxValue));
+            players.add(new Player("Player-" + i, bag, tokenMaxValue));
         }
 
         for (Player player : players) {
@@ -26,7 +26,6 @@ public class Main
         for (Player player : players) {
             player.join();
         }
- 
 
     }
 }
