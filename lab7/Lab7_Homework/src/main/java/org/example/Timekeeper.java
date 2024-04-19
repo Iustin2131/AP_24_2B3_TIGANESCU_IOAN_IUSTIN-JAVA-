@@ -21,7 +21,6 @@ public class Timekeeper extends Thread {
             long elapsedTimeMillis = currentTimeMillis - startTimeMillis;
 
             if (elapsedTimeMillis >= timeLimitMillis) {
-                System.out.println("Time limit exceeded. Stopping the game.");
                 gameInProgress.set(false);
                 break;
             }
@@ -37,4 +36,9 @@ public class Timekeeper extends Thread {
     public boolean isGameFinished() {
         return !gameInProgress.get();
     }
+
+    public long getStartTimeMillis() {
+        return startTimeMillis;
+    }
 }
+

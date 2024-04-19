@@ -8,9 +8,9 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        int tokenMaxValue = 3;
+        int tokenMaxValue = 4;
         int playersNumber = 3;
-        long gameDurationMillis = 60000;
+        long gameDurationMillis = 6000;
 
         Bag bag = new Bag(tokenMaxValue);
         List<Player> players = new ArrayList<>();
@@ -32,17 +32,21 @@ public class Main {
             player.join();
         }
 
-        gameInProgress.set(false);
-
         if (timekeeper.isGameFinished()) {
             System.out.println("\n Game ended due to time limit exceeded. \n");
         } else {
             System.out.println("\n All players finished within the time limit. \n");
+
+            GameStatistics gameStatistics = new GameStatistics(players, gameDurationMillis);
+            gameStatistics.calculateScores();
+            gameStatistics.displayScores();
+            gameStatistics.determineWinner();
+
+            // Afisăm durata jocului
+            long actualGameDuration = System.currentTimeMillis() - timekeeper.getStartTimeMillis();
+            System.out.println("Game duration: " + actualGameDuration + " milliseconds");
         }
 
-        GameStatistics gameStatistics = new GameStatistics(players);
-        gameStatistics.calculateScores();
-        gameStatistics.displayScores();
-        gameStatistics.determineWinner();
+        gameInProgress.set(false);
     }
 }
