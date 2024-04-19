@@ -14,5 +14,5 @@ The players might take turns (or not...) and a time limit might be imposed (or n
  ####    Make sure that players wait their turns, using a wait-notify approach.
  ####    Implement a timekeeper thread that runs concurrently with the player threads, as a daemon. This thread will display the running time of the game and it will stop the game if it exceeds a certain time limit. 
 
-![screenshot_1](3.png)
-![screenshot_2](1.png)
+![screenshot_1](1.png)
+![screenshot_3](3.png)
