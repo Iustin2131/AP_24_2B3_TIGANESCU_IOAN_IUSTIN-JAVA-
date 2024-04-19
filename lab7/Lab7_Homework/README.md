@@ -15,3 +15,4 @@ The players might take turns (or not...) and a time limit might be imposed (or n
  ####    Implement a timekeeper thread that runs concurrently with the player threads, as a daemon. This thread will display the running time of the game and it will stop the game if it exceeds a certain time limit. 
 
 ![screenshot](1.png)
+![screenshot](2.png)
