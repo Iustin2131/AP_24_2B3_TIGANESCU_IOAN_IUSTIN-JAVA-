@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         int tokenMaxValue = 4;
         int playersNumber = 3;
-        long gameDurationMillis = 6000;
+        long gameDurationMillis = 600;
 
         Bag bag = new Bag(tokenMaxValue);
         List<Player> players = new ArrayList<>();
