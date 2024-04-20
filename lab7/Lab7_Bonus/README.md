@@ -7,7 +7,7 @@ The value of a sequence is given by the number of its tokens.
 The game ends when all tokens have been removed from the bag or when a player makes a sequence of length n. Each player receives a number of points equal to the value of its largest sequence.
 The players might take turns (or not...) and a time limit might be imposed (or not...).
 
- # Bonus (2p)
+ # Bonus
 
   ####  Implement a "smart" player. This should try to create the optimum sequence using its tiles, in some special cases.
   ####  Verify if the graph satisfies the Ore's condition and implement, using Graph4J API, a polynomial time algorithm for determining a hamiltonian cycle in graphs that meet Ore's condition.
