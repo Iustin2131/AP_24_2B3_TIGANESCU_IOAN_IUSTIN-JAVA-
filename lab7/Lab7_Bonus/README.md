@@ -11,6 +11,6 @@ The players might take turns (or not...) and a time limit might be imposed (or n
 
   ####  Implement a "smart" player. This should try to create the optimum sequence using its tiles, in some special cases.
   ####  Verify if the graph satisfies the Ore's condition and implement, using Graph4J API, a polynomial time algorithm for determining a hamiltonian cycle in graphs that meet Ore's condition.
-  ##  You may want to read The Hidden Algorithm of Ore’s Theorem on Hamiltonian Cycles. 
+  #####  You may want to read The Hidden Algorithm of Ore’s Theorem on Hamiltonian Cycles. 
 
 ![screenshot_1](1.png)
