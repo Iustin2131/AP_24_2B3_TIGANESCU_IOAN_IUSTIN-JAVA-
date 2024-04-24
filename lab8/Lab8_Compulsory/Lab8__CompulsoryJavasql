@@ -1,0 +1,62 @@
+SET SERVEROUTPUT ON;
+
+DROP TABLE BooksList;
+DROP TABLE BooksInfo;
+DROP SEQUENCE BooksList_seq;
+DROP SEQUENCE BooksInfo_seq;
+
+describe BooksInfo;
+
+drop table BooksList;
+DROP TABLE BooksInfo;
+
+drop sequence  BooksList_seq;
+CREATE TABLE BooksList (
+  id int primary key,
+  name varchar2(25)
+);
+
+CREATE SEQUENCE BooksList_seq START WITH 1;
+
+CREATE OR REPLACE TRIGGER BooksList_bir 
+BEFORE INSERT ON BooksList
+FOR EACH ROW
+BEGIN
+  SELECT books_seq.NEXTVAL
+  INTO   :new.id
+  FROM   dual;
+END;
+/
+
+
+CREATE TABLE BooksInfo (
+  id INT PRIMARY KEY,
+  title VARCHAR2(100),
+  authors VARCHAR2(100),
+  language VARCHAR2(50),
+  publicationDate  VARCHAR2(50)
+);
+
+CREATE SEQUENCE BooksInfo_seq START WITH 1;
+
+CREATE OR REPLACE TRIGGER BooksInfo_bir 
+BEFORE INSERT ON BooksInfo 
+FOR EACH ROW
+BEGIN
+  SELECT BooksInfo_seq.NEXTVAL
+  INTO   :new.id
+  FROM   dual;
+END;
+/
+
+  /*  Debugging
+  
+  select * from BooksList;
+  select * from BooksInfo;
+ 
+ select * from BooksList where name = 'Cartea ballast';
+ select name from BooksList where id='7';
+ 
+  */
+
+
