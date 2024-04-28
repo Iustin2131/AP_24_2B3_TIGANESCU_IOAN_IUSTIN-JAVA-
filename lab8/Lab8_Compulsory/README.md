@@ -1,17 +1,14 @@
 
-  # Concurrency
-Write a program that simulates the following game between a given number of players.
-At the beginning of the game there is a bag containing a number of tokens, each token being a distinct pair of numbers between 1 and n.
-Each player extracts tokens successively from the bag and must create with them closed sequences of the form t1=(i1,i2), t2=(i2,i3),...,tk=(ik,i1), where ti are tokens and i1,i2,i3,...,ik are distinct numbers.
-The value of a sequence is given by the number of its tokens.
-The game ends when all tokens have been removed from the bag or when a player makes a sequence of length n. Each player receives a number of points equal to the value of its largest sequence.
-The players might take turns (or not...) and a time limit might be imposed (or not...).
+  # JDBC
+Write an application that allows to connect to a relational database by using JDBC, submit SQL statements and display the results.
+The application will manage a collection of books. Each book has some properties, such as: title, one or more authors, language, publication date, number of pages, etc.. 
 
 # Compulsory 
 
-####    Create an object oriented model of the problem.
-####    Each player will have a name and they must perform in a concurrent manner, extracting repeatedly tokens from the bag.
-####    Simulate the game using a thread for each player (only the part where the players extract tokens from the bag).
-####    Pay attention to the synchronization of the threads when extracting tokens from the bag. plement a timekeeper thread that runs concurrently with the player threads, as a daemon. This thread will display the running time of the game and it will stop the game if it exceeds a certain time limit. 
+####    Create a relational database using any RDBMS (Oracle, Postgres, MySql, Java DB, etc.).
+####    Write an SQL script that will create the required tables in order to store the books.
+####    Update pom.xml, in order to add the database driver to the project libraries.
+####    Create a singleton class in order to manage a connection to the database.
+####    Create a DAO class for managing the authors. 
 
 ![screenshot](1.png)
