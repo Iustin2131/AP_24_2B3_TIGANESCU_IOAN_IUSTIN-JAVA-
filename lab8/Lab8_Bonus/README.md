@@ -9,3 +9,4 @@ The application will manage a collection of books. Each book has some properties
  ####   Two books are related if they have a common author or share a common genre. Create an algorithm that partitions the collection of books into reading lists that contain only unrelated books. The number of lists should be "as small as possible" and any two lists should have the same size or differ by at most one
 
 ![screenshot](1.png)
+All unrelated books are recorded in the table on each line.
