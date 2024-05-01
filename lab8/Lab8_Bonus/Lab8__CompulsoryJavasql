@@ -1,0 +1,36 @@
+
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE ReadingList';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+
+CREATE TABLE ReadingList (
+  id INT PRIMARY KEY,
+  name VARCHAR2(600),
+  creationTimestamp TIMESTAMP,
+  books VARCHAR2(1000)  
+);
+
+CREATE SEQUENCE ReadingList_seq START WITH 1;
+
+CREATE OR REPLACE TRIGGER ReadingList_bir
+BEFORE INSERT ON ReadingList
+FOR EACH ROW
+BEGIN
+  SELECT ReadingList_seq.NEXTVAL
+  INTO   :new.id
+  FROM   dual;
+END;
+/
+
+/*
+
+select * from ReadingList;
+
+*/
