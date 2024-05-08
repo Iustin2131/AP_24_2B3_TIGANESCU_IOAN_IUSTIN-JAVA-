@@ -30,7 +30,7 @@ public class ReadingList {
             pstmt.setInt(1, this.id);
             pstmt.setString(2, this.name);
             pstmt.setString(3, this.publicationDate);
-            // Choose either comma-separated or space-separated format here
+
             String bookIdsString = bookIds.stream()
                     .map(Object::toString)
                     .collect(Collectors.joining(","));

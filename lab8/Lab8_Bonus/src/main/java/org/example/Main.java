@@ -2,10 +2,11 @@ package org.example;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
+
     public static void main(String[] args) {
         Connection conn = null;
         try {
@@ -14,15 +15,23 @@ public class Main {
 
             BooksInfoDAO booksInfoDAO = new BooksInfoDAO();
             List<Book> allBooks = booksInfoDAO.findAll(conn);
+            int limit = Math.min(allBooks.size(), 100);
+            List<Book> first100Books = allBooks.subList(0, limit);
 
-            List<ReadingList> readingLists = createUnrelatedReadingLists(allBooks);
+            for (Book r : first100Books) {
 
+                List<Integer> unrelatedBookIdsWithR = createUnrelatedBookIdsWithR(first100Books, r, 10);
 
-            for (ReadingList rl : readingLists) {
+                ReadingList rl = new ReadingList(r.getId(), "Unrelated List for " + r.getTitle(), "2021-09-01");
+
+                for (Integer bookId : unrelatedBookIdsWithR) {
+                    rl.addBook(bookId);
+                }
+
                 rl.save(conn);
             }
 
-            Database.commit(conn) ;
+            Database.commit(conn);
         } catch (SQLException e) {
             System.err.println("Database error: " + e.getMessage());
             try {
@@ -32,7 +41,6 @@ public class Main {
             } catch (SQLException ex) {
                 System.err.println("Failed to rollback: " + ex.getMessage());
             }
-
         } finally {
             try {
                 if (conn != null) {
@@ -44,18 +52,11 @@ public class Main {
         }
     }
 
-    private static List<ReadingList> createUnrelatedReadingLists(List<Book> books) {
-        List<ReadingList> lists = new ArrayList<>();
-        int idCounter = 1;
-        while (!books.isEmpty()) {
-            Book currentBook = books.remove(0);
-            ReadingList rl = new ReadingList(idCounter++, "Unrelated List for " + currentBook.getTitle(), "2022-12-01"); // Modify this line to include the ID
-            rl.addBook(currentBook.getId());
-
-
-            books.removeIf(b -> b.getAuthors().equals(currentBook.getAuthors()) || b.getLanguage().equals(currentBook.getLanguage()));
-            lists.add(rl);
-        }
-        return lists;
+    private static List<Integer> createUnrelatedBookIdsWithR(List<Book> books, Book r, int maxDifference) {
+        return books.stream()
+                .filter(b -> !b.getAuthors().equals(r.getAuthors()) && !b.getLanguage().equals(r.getLanguage()) && b.getId() != r.getId())
+                .map(Book::getId)
+                .limit(maxDifference)
+                .collect(Collectors.toList());
     }
 }

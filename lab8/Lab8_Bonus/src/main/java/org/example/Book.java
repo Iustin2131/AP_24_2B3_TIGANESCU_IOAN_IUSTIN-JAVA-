@@ -12,7 +12,7 @@ public class Book {
         this.title = title;
         this.authors = authors;
         this.language = language;
-        this.publicationDate = publicationDate + ", ";
+        this.publicationDate = publicationDate;
     }
 
     public int getId() {
