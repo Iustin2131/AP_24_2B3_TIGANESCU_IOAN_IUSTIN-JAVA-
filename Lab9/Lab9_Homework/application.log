@@ -1,0 +1,30 @@
+May 19, 2024 10:29:39 A.M. org.example.Main main
+INFO: Application executed successfully.
+May 19, 2024 11:41:12 A.M. org.example.Main main
+INFO: Application executed successfully.
+May 19, 2024 12:54:25 A.M. org.example.Main main
+INFO: Application executed successfully.
+May 19, 2024 1:09:09 A.M. org.example.Main main
+SEVERE: Error during application execution: not-null property references a null or transient value : org.example.Book.author
+May 19, 2024 1:10:39 A.M. org.example.Main main
+SEVERE: Error during application execution: not-null property references a null or transient value : org.example.Book.author
+May 19, 2024 1:12:21 A.M. org.example.Main main
+SEVERE: Error during application execution: not-null property references a null or transient value : org.example.Book.author
+May 19, 2024 1:13:45 A.M. org.example.Main main
+SEVERE: Error during application execution: not-null property references a null or transient value : org.example.Book.author
+May 19, 2024 1:17:11 A.M. org.example.Main main
+SEVERE: Error during application execution: not-null property references a null or transient value : org.example.Book.author
+May 19, 2024 1:21:31 A.M. org.example.Main main
+SEVERE: Error during application execution: not-null property references a null or transient value : org.example.Book.author
+May 19, 2024 1:21:57 A.M. org.example.Main main
+INFO: Application executed successfully.
+May 19, 2024 1:22:54 A.M. org.example.Main main
+INFO: Application executed successfully.
+May 19, 2024 1:23:56 A.M. org.example.Main main
+INFO: Application executed successfully.
+May 19, 2024 1:24:14 A.M. org.example.Main main
+INFO: Application executed successfully.
+May 19, 2024 1:24:43 A.M. org.example.Main main
+SEVERE: Error during application execution: could not execute statement [Table 'lab9.publishing_houses' doesn't exist] [insert into publishing_houses (name) values (?)]
+May 19, 2024 1:24:53 A.M. org.example.Main main
+INFO: Application executed successfully.
