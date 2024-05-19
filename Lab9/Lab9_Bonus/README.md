@@ -9,3 +9,4 @@ Continue the application from lab 8, creating an object-oriented model and using
 ####    Use a constraint solver, such as Choco solver, OptaPlanner or ORTools, in order to find a set of at least k books having titles that start with the same letter which are published in the same period of time (for any two books in the result, the difference between the years when they were published must not exceed a given value p). 
 ![screenshot1](1.png)
 
+It's not complete
