@@ -15,9 +15,9 @@ Create an implementation of the Battleship game, that allows remote players to s
 
 ![screenshot1](1.png)
 
-  ##  A player can create a new game by specifying an ID (create <gameId>).
-  ##   A player can join an existing game with an ID and a name (join <gameId> <player>).
-  ##  Upon joining, the player receives an initialized game grid.
-  ##  A player can leave the game at any time (leave <gameId> <player>), which may end the game.
-  ##  The player can make moves to hit targets on the opponent's grid (submit <gameId> <player> <target>).
-  ##  Each player has a limited time; if the time runs out, the game ends and the player loses.
+  ###   A player can create a new game by specifying an ID (create <gameId>).
+  ###   A player can join an existing game with an ID and a name (join <gameId> <player>).
+  ###   Upon joining, the player receives an initialized game grid.
+  ###   A player can leave the game at any time (leave <gameId> <player>), which may end the game.
+  ###   The player can make moves to hit targets on the opponent's grid (submit <gameId> <player> <target>).
+  ###   Each player has a limited time; if the time runs out, the game ends and the player loses.
