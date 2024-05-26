@@ -10,7 +10,7 @@ Create an implementation of the Battleship game, that allows remote players to s
 
   ####  Create a Spring Boot project that will contain the REST services for comunicating with the server data.
   ####  Create a REST controller containing a method for:
-     -  obtaining the list of authors, via a HTTP GET request. 
+  ####  obtaining the list of authors, via a HTTP GET request. 
   ####  Test your service using the browser and/or Postman, or RestMan, etc. 
 
 ![screenshot1](1.png)
