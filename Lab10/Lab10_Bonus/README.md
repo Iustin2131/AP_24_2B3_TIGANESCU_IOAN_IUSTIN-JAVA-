@@ -6,49 +6,16 @@ Create an implementation of the Battleship game, that allows remote players to s
         create or join a game,
         submit a move, etc. 
 
-# Homework 
+# Bonus 
 
-  ####  Create the OOP model and implement functionalities of the game.
-  ####  The clients will send to the server commands such as: create game, join game, submit move, etc.
-  ####  The server is responsible with the game management and mediating the players.
-  ####  The games will be played under time control (blitz) with each player having the same amount of time at the beginning of the game. If a player's time runs out, the game is lost. 
+  ####   Implement a feature for organizing tournaments.
+  #### Assuming there are n players registered on the server, create a schedule such that:
+
+  ####  each player will play with every other player exactly once (the first player to move is chosen randomly);
+  ##### a player can not have more than p games in a day;
+  ##### the tournament must finish in at most d days. 
+
+  ####  Once the schedule is created, generate random outcomes for all games (there are no draws).
+  ##### Find the sequence of players p1,p2,...,pn such that pi beats pi+1, for all i=1,n-1. 
 
 ![screenshot1](1.png)
-
-  # Game Instructions
-
-## Overview
-This game allows players to engage in a turn-based grid game with time control. Each player has a limited amount of time to make their moves. If a player's time runs out, the game is lost.
-
-## Commands
-Here are the commands that players can use to interact with the game:
-
-1. **Create a Game**
-   - Command: `create <gameId>`
-   - Description: A player can create a new game by specifying a unique game ID.
-
-2. **Join a Game**
-   - Command: `join <gameId> <player>`
-   - Description: A player can join an existing game using the game ID and their player name. Upon joining, the player receives an initialized game grid.
-
-3. **Leave a Game**
-   - Command: `leave <gameId> <player>`
-   - Description: A player can leave the game at any time using the game ID and their player name. If the game is in progress, leaving may end the game and declare the opponent as the winner.
-
-4. **Submit a Move**
-   - Command: `submit <gameId> <player> <target>`
-   - Description: The player can make moves to hit targets on the opponent's grid by specifying the game ID, their player name, and the target coordinates.
-
-5. **Stop the Game**
-   - Command: `stop`
-   - Description: A player can stop their client connection.
-
-6. **Stop the Server**
-   - Command: `stopServer`
-   - Description: A command to stop the server. Only available to the server administrator.
-
-## Time Control
-- Each player has a limited amount of time to play (e.g., 5 minutes).
-- If a player's time runs out, the game automatically ends, and the player loses.
-- The remaining time is reset or adjusted after each move to ensure fair play.
-
