@@ -14,5 +14,5 @@ Create an implementation of the Battleship game, that allows remote players to s
   ####  Test your service using the browser and/or Postman, or RestMan, etc. 
 
 ![screenshot1](1.png)
-![screenshot1](2.png)
-![screenshot1](3.png)
+![screenshot2](2.png)
+![screenshot3](3.png)
