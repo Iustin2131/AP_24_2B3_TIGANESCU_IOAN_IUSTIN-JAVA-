@@ -7,7 +7,6 @@ Create an implementation of the Battleship game, that allows remote players to s
         submit a move, etc. 
 
 # Bonus 
-## Description
 
 This project implements a feature for organizing tournaments. Assuming there are `n` players registered on the server, the application creates a schedule such that:
 
